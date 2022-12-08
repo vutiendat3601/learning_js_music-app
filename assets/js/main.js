@@ -9,6 +9,7 @@ const cdThumb = $(".header__cd-thumb");
 const headingSong = $(".header__heading-song");
 const headingSinger = $(".header__heading-singer");
 const btnPlay = $(".btn-play");
+const audioProgress = $(".player__progress-seek");
 
 // Database
 let audiosDb = [];
@@ -78,6 +79,8 @@ const app = {
     },
     initHandler: function () {
         let _this = this;
+
+        // Play button event
         btnPlay.onclick = () => {
             if (_this.settings.isPlaying) {
                 audio.pause();
@@ -85,17 +88,24 @@ const app = {
                 audio.play();
             }
         }
+
+        // Song items event
         let songItems = $$(".songs__list-item");
         songItems.forEach(songItem => {
             songItem.onclick = () => {
                 let oldIndex = _this.currentIndex;
-                _this.currenPlaylistIndex = Number.parseInt(songItem.getAttribute("song-id"));
+                _this.currenPlaylistIndex = songItem.getAttribute("song-id");
                 _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
                 _this.loadCurrentSong();
                 _this.renderCurrentSong();
                 audio.play();
             }
         });
+
+        // Audio event
+        audio.ontimeupdate = () => {
+            audioProgress.value = audio.currentTime / audio.duration * 1000;
+        }
     },
     start: function () {
         this.init();
