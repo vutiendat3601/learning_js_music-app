@@ -4,76 +4,87 @@
         "name": "24h",
         "singer": "LyLy",
         "path": "assets/audio/24h_lyly.mp3",
-        "thumb": "assets/img/thumb/24h_thumb.jpg"
+        "thumb": "assets/img/thumb/24h_thumb.jpg",
+        "youtube": "https://youtu.be/IpniN1Wq68Y"
     },
     {
         "id": 2,
         "name": "ĐỪNG YÊU NỮA, EM MỆT RỒI",
         "singer": "MIN",
         "path": "assets/audio/dung-yeu-nua-em-met-roi_min.mp3",
-        "thumb": "assets/img/thumb/dung-yeu-nua-em-met-roi_thumb.jpg"
+        "thumb": "assets/img/thumb/dung-yeu-nua-em-met-roi_thumb.jpg",
+        "youtube": "https://youtu.be/2sIC1sh-yc0"
     },
     {
         "id": 3,
         "name": "Nụ Cười 18 20",
         "singer": "Doãn Hiếu",
         "path": "assets/audio/nu-cuoi-18-20_doan-hieu.mp3",
-        "thumb": "assets/img/thumb/nu-cuoi-18-20_thumb.jpg"
+        "thumb": "assets/img/thumb/nu-cuoi-18-20_thumb.jpg",
+        "youtube": "https://youtu.be/9EwqXZtviTM"
     },
     {
         "id": 4,
         "name": "Tự Sự",
         "singer": "Orange",
         "path": "assets/audio/tu-su_orange.mp3",
-        "thumb": "assets/img/thumb/tu-su_thumb.jpg"
+        "thumb": "assets/img/thumb/tu-su_thumb.jpg",
+        "youtube": "https://youtu.be/C4QhZvTqhnI"
     },
     {
         "id": 5,
         "name": "Vợ Tuyệt Vời Nhất",
         "singer": "Vũ Duy Khánh",
         "path": "assets/audio/vo-tuyet-voi-nhat_vu-duy-khanh.mp3",
-        "thumb": "assets/img/thumb/vo-tuyet-voi-nhat_thumb.jpg"
+        "thumb": "assets/img/thumb/vo-tuyet-voi-nhat_thumb.jpg",
+        "youtube": "https://youtu.be/oM_JJIJygYw"
     },
     {
         "id": 6,
         "name": "Bài Này Không Để Đi Diễn",
         "singer": "Anh Tú Atus",
         "path": "assets/audio/bai-nay-khong-de-di-dien_anh-tu-atus.mp3",
-        "thumb": "assets/img/thumb/bai-nay-khong-de-di-dien_thumb.jpg"
+        "thumb": "assets/img/thumb/bai-nay-khong-de-di-dien_thumb.jpg",
+        "youtube": "https://youtu.be/i0yxWxk_e20"
     },
     {
         "id": 7,
         "name": "Mình Yêu Từ Bao Giờ",
         "singer": "Miu Lê",
         "path": "assets/audio/minh-yeu-tu-bao-gio_miu-le.mp3",
-        "thumb": "assets/img/thumb/minh-yeu-tu-bao-gio_thumb.jpg"
+        "thumb": "assets/img/thumb/minh-yeu-tu-bao-gio_thumb.jpg",
+        "youtube": "https://youtu.be/qH-pG2wBdlA"
     },
     {
         "id": 8,
         "name": "Mặt Mộc",
         "singer": "VAnh",
         "path": "assets/audio/mat-moc_vanh.mp3",
-        "thumb": "assets/img/thumb/mat-moc_thumb.jpg"
+        "thumb": "assets/img/thumb/mat-moc_thumb.jpg",
+        "youtube": "https://youtu.be/v1ADEPnPt54"
     },
     {
         "id": 9,
         "name": "Nơi Này Có Anh",
         "singer": "Sơn Tùng MTP",
         "path": "assets/audio/noi-nay-co-anh_son-tung-mtp.mp3",
-        "thumb": "assets/img/thumb/noi-nay-co-anh_thumb.jpg"
+        "thumb": "assets/img/thumb/noi-nay-co-anh_thumb.jpg",
+        "youtube": "https://youtu.be/FN7ALfpGxiI"
     },
     {
         "id": 10,
         "name": "Dreamers",
         "singer": "Jong Kook",
         "path": "assets/audio/dreamers_jong-kook.mp3",
-        "thumb": "assets/img/thumb/dreamers_thumb.jpg"
+        "thumb": "assets/img/thumb/dreamers_thumb.jpg",
+        "youtube": "https://youtu.be/IwzkfMmNMpM"
     },
     {
         "id": 11,
         "name": "Đường Tôi Chở Em Về",
         "singer": "Bùi Trường Linh",
         "path": "assets/audio/duong-toi-cho-em-ve_bui-truong-linh.mp3",
-        "thumb": "assets/img/thumb/duong-toi-cho-em-ve_thumb.jpg"
+        "thumb": "assets/img/thumb/duong-toi-cho-em-ve_thumb.jpg",
+        "youtube": "https://youtu.be/OuNo8Tkb3lI"
     }
 ]

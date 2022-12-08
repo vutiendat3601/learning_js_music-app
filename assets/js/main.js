@@ -1,7 +1,7 @@
 // DOM
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-const contextPath = `${location.origin}/music-app/`;
+const contextPath = `${location.origin}/`;
 
 const songsList = $(".songs__list");
 const audio = $("#audio");
@@ -10,6 +10,7 @@ const headingSong = $(".header__heading-song");
 const headingSinger = $(".header__heading-singer");
 const btnPlay = $(".btn-play");
 const audioProgress = $(".player__progress-seek");
+const btnYoutube = $(".btn-youtube");
 
 // Database
 let audiosDb = [];
@@ -76,6 +77,7 @@ const app = {
         headingSong.textContent = this.currentSong.name;
         headingSinger.textContent = this.currentSong.singer;
         audio.src = this.currentSong.path;
+        btnYoutube.href = this.currentSong.youtube;
     },
     initHandler: function () {
         let _this = this;
@@ -101,6 +103,11 @@ const app = {
                 audio.play();
             }
         });
+
+        // Audio progress event
+        audioProgress.onchange = (e) => {
+            audio.currentTime = e.target.value / 1000 * audio.duration;
+        }
 
         // Audio event
         audio.ontimeupdate = () => {
