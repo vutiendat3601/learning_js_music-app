@@ -1,7 +1,9 @@
 // DOM
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-const contextPath = `${location.origin}/music-app/`;
+const originLocation = location.origin;
+const contextPath = originLocation.includes("github.io") ?
+    `${originLocation}/music-app/` : `${originLocation}/`;
 
 const songsList = $(".songs__list");
 const audio = $("#audio");
