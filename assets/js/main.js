@@ -82,6 +82,8 @@ const app = {
         headingSinger.textContent = this.currentSong.singer;
         audio.src = this.currentSong.path;
         btnYoutube.href = this.currentSong.youtube;
+        $(`.songs__list-item.active`)?.classList.remove("active");
+        $(`.songs__list-item[song-id='${this.currenPlaylistIndex}']`)?.classList.add("active");
     },
     initHandler: function () {
         let _this = this;
