@@ -33,7 +33,7 @@
 }
 
 .header__heading-song,
-.header__heading-artist {
+.header__heading-singer {
     margin: 12px auto;
     color: var(--white-color);
     overflow: hidden;
@@ -180,7 +180,7 @@
 .songs__list-item-thumb {
     width: 48px;
     height: 48px;
-    border-radius: 8px;
+    border-radius: 10px;
     margin: 0 4px 0 8px;
     background-size: cover;
     background-image: url("../img/thumb/bai-nay-khong-de-di-dien_thumb.jpg");
@@ -196,7 +196,7 @@
     padding: 2px;
 }
 
-.songs__list-item-detail-artist {
+.songs__list-item-detail-singer {
     padding: 2px;
     font-size: 14px;
     color: #cccccc;
