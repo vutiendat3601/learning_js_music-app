@@ -14,6 +14,7 @@ const btnPlay = $(".btn-play");
 const audioProgress = $(".player__progress-seek");
 const btnYoutube = $(".btn-youtube");
 const btnDownload = $(".btn-download");
+const inpSearch = $(".songs__searchbar");
 
 // Database
 let audiosDb = [];
@@ -124,6 +125,22 @@ const app = {
                 audio.play();
             }
         });
+
+        inpSearch.oninput = (e) => {
+            let keyword = e.target.value;
+            keyword = keyword.toLowerCase();
+            let result = this.songs.filter(song => song.name.toLowerCase().includes(keyword)
+                || song.singer.toLowerCase().includes(keyword));
+            this.songs.forEach((s, i) => {
+                let item = $(`.songs__list-item[song-id='${i}']`);
+                if (!result.includes(s)) {
+                    item.style.display = "none";
+                } else {
+                    item.style.display = "flex";
+                }
+            });
+            console.log(result);
+        }
 
         // Audio progress event
         audioProgress.onchange = (e) => {
