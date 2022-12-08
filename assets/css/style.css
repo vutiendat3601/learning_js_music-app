@@ -53,7 +53,7 @@
 }
 
 .btn .btn-icon {
-    width: 56px;
+    width: 48px;
     height: 32px;
     line-height: 60px;
     text-align: center;
@@ -64,8 +64,8 @@
 .btn-play .btn-icon {
     border-radius: 50%;
     border: none;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     background: url("../icon/btn-play_icon.svg") no-repeat;
 }
 
