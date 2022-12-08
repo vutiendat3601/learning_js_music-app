@@ -49,10 +49,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* align-content: center; */
 }
 
-.btn .btn-icon {
+.btn-icon {
+    cursor: pointer;
     width: 48px;
     height: 32px;
     line-height: 60px;
@@ -98,11 +98,11 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .songs__item:hover {
     background-image: linear-gradient(to right, #e52e2e, #dd1f1f);
-    cursor: pointer;
 }
 
 .songs__item-thumb {
@@ -122,6 +122,7 @@
     font-size: 16px;
     color: var(--white-color);
 }
+
 .songs__item-detail-artist {
     font-size: 14px;
     color: #cccccc;
