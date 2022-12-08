@@ -105,6 +105,10 @@
     background-image: linear-gradient(to right, #e52e2e, #dd1f1f);
 }
 
+.songs__item.active {
+    background-image: linear-gradient(to right, #e52e2e, #dd1f1f);
+}
+
 .songs__item-thumb {
     width: 48px;
     height: 48px;
@@ -121,9 +125,11 @@
 .songs__item-detail-name {
     font-size: 16px;
     color: var(--white-color);
+    padding: 4px;
 }
 
 .songs__item-detail-artist {
+    padding: 4px;
     font-size: 14px;
     color: #cccccc;
 }
