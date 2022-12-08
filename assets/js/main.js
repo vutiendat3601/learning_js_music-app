@@ -1,7 +1,7 @@
 // DOM
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-const contextPath = `${location.origin}/`;
+const contextPath = `${location.origin}/music-app/`;
 
 const songsList = $(".songs__list");
 const audio = $("#audio");
