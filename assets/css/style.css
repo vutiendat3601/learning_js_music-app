@@ -7,7 +7,7 @@
 }
 
 .header {
-    padding: 20px 20px 10px 20px;
+    padding: 20px 10px 10px 10px;
     margin: 0 auto;
     width: 100%;
 }
@@ -46,33 +46,69 @@
     padding: 10px;
 }
 
+.player__progress {
+    padding: 8px 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: var(--white-color);
+
+}
+
+.player__progress-seek {
+    width: 100%;
+    cursor: pointer;
+}
+
+.player__progress-time {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player__progress-time-curent {
+    text-align: left;
+}
+
+.player__progress-time-end {
+    text-align: right;
+}
+
+.player__progress-time-curent,
+.player__progress-time-end {
+    display: block;
+    width: 48px;
+    /* margin: auto 4px; */
+}
+
+
+
+
+.player__pane {
+    padding: 8px 16px 4px 16px;
+}
+
+.player__util {
+    padding: 8px 16px 4px 16px;
+}
+
 .player__pane,
 .player__util {
-    padding: 8px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
-.btn:hover {
-    opacity: 0.8;
-}
 
-.btn-icon {
-    cursor: pointer;
-    width: 48px;
-    height: 32px;
-    line-height: 60px;
-    text-align: center;
-    filter: brightness(0) invert(1);
-    stroke-width: 1px;
-}
 
 .btn-play .btn-icon {
     border-radius: 50%;
     border: none;
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     background: url("../icon/btn-play_icon.svg") no-repeat;
 }
 
@@ -82,16 +118,52 @@
 }
 
 .songs {
-    padding: 10px 20px;
-    list-style: none;
-    /* height: 100%; */
-    overflow-y: scroll;
-    max-height: 360px;
+    padding: 10px;
 }
 
-.songs__item {
+.songs__search {
+    display: flex;
+    margin: 4px 16px;
+    border: var(--white-color) solid 1px;
+    background-color: #404b76;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.songs__search-icon {
+    margin: 4px 6px;
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.songs__searchbar {
+    flex: 1;
+    border: none;
+    background-color: #404b76;
+    height: 24px;
+    color: var(--white-color);
+    font-size: 16px;
+    outline: none;
+    line-height: 16px;
+}
+
+
+
+.btn-search:hover {
+    opacity: 0.8;
+}
+
+.songs__list {
+    list-style: none;
+    overflow-y: scroll;
+    max-height: 360px;
+    padding: 10px 8px;
+}
+
+.songs__list-item {
     margin: 2px auto;
-    padding: 4px 6px;
+    padding: 4px 0;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -99,32 +171,32 @@
     opacity: 0.9;
 }
 
-.songs__item.active,
-.songs__item:hover {
+.songs__list-item.active,
+.songs__list-item:hover {
     background-image: linear-gradient(to right, #e52e2e, #dd1f1f);
     opacity: 1;
 }
 
-.songs__item-thumb {
+.songs__list-item-thumb {
     width: 48px;
     height: 48px;
     border-radius: 8px;
-    margin-right: 4px;
+    margin: 0 4px 0 8px;
     background-size: cover;
     background-image: url("../img/thumb/bai-nay-khong-de-di-dien_thumb.jpg");
 }
 
-.songs__item-detail {
+.songs__list-item-detail {
     margin-left: 4px;
 }
 
-.songs__item-detail-name {
+.songs__list-item-detail-name {
     font-size: 16px;
     color: var(--white-color);
     padding: 2px;
 }
 
-.songs__item-detail-artist {
+.songs__list-item-detail-artist {
     padding: 2px;
     font-size: 14px;
     color: #cccccc;

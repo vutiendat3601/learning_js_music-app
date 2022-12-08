@@ -14,3 +14,16 @@ html {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+.btn-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 20px;
+    line-height: 60px;
+    text-align: center;
+    filter: brightness(0) invert(1);
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

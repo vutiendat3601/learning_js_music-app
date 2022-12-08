@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "name": "24h",
+        "singer": "LyLy",
+        "path": "assets/music/24h_lyly.mp3",
+        "thumb": "assets/img/thumb/24h_thumb.jpg"
+    },
+    {
+        "id": 2,
+        "name": "ĐỪNG YÊU NỮA, EM MỆT RỒI",
+        "singer": "MIN",
+        "path": "assets/music/dung-yeu-nua-em-met-roi_min.mp3",
+        "thumb": "assets/img/thumb/dung-yeu-nua-em-met-roi_thumb.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Nụ Cười 18 20",
+        "singer": "Doãn Hiếu",
+        "path": "assets/music/nu-cuoi-18-20_doan-hieu.mp3",
+        "thumb": "assets/img/thumb/nu-cuoi-18-20_thumb.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Tự Sự",
+        "singer": "Orange",
+        "path": "assets/music/tu-su_orange.mp3",
+        "thumb": "assets/img/thumb/tu-su_thumb.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Vợ Tuyệt Vời Nhất",
+        "singer": "Vũ Duy Khánh",
+        "path": "assets/music/vo-tuyet-voi-nhat_vu-duy-khanh.mp3",
+        "thumb": "assets/img/thumb/vo-tuyet-voi-nhat_thumb.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Bài Này Không Để Đi Diễn",
+        "singer": "Anh Tú Atus",
+        "path": "assets/music/bai-nay-khong-de-di-dien_anh-tu-atus.mp3",
+        "thumb": "assets/img/thumb/bai-nay-khong-de-di-dien_thumb.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Mình Yêu Từ Bao Giờ",
+        "singer": "Miu Lê",
+        "path": "assets/music/minh-yeu-tu-bao-gio_miu-le.mp3",
+        "thumb": "assets/img/thumb/minh-yeu-tu-bao-gio_thumb.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Mặt Mộc",
+        "singer": "VAnh",
+        "path": "assets/music/mat-moc_vanh.mp3",
+        "thumb": "assets/img/thumb/mat-moc_thumb.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Nơi Này Có Anh",
+        "singer": "Sơn Tùng MTP",
+        "path": "assets/music/noi-nay-co-anh_son-tung-mtp.mp3",
+        "thumb": "assets/img/thumb/noi-nay-co-anh_thumb.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Dreamers",
+        "singer": "Jong Kook",
+        "path": "assets/music/dreamers_jong-kook.mp3",
+        "thumb": "assets/img/thumb/dreamers__thumb.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Đường Tôi Chở Em Về",
+        "singer": "Bùi Trường Linh",
+        "path": "assets/music/duong-toi-cho-em-ve_bui-truong-linh.mp3",
+        "thumb": "assets/img/thumb/duong-toi-cho-em-ve_thumb.jpg"
+    }
+]

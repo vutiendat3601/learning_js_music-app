@@ -25,6 +25,13 @@
             </div>
         </header>
         <div class="player">
+            <div class="player__progress">
+                <input class="player__progress-seek" type="range">
+                <div class="player__progress-time">
+                    <p class="player__progress-time-curent">00:00</p>
+                    <p class="player__progress-time-end">03:00</p>
+                </div>
+            </div>
             <div class="player__pane">
                 <div class="btn btn-shuffle"><img class="btn-icon" src="./assets/icon/btn-suffle_icon.svg"></div>
                 <div class="btn btn-previous"><img class="btn-icon" src="./assets/icon/btn-previous_icon.svg"></div>
@@ -33,70 +40,83 @@
                 <div class="btn btn-repeat"><img class="btn-icon" src="./assets/icon/btn-repeat_icon.svg"></div>
             </div>
             <div class="player__util">
-                <a class="btn btn-youtube" href="https://www.youtube.com"><img class="btn-icon" src="./assets/icon/btn-youtube_icon.svg"></a>
+                <a class="btn btn-youtube" href="https://www.youtube.com"><img class="btn-icon"
+                        src="./assets/icon/btn-youtube_icon.svg"></a>
                 <div class="btn btn-upload"><img class="btn-icon" src="./assets/icon/btn-upload_icon.svg"></div>
                 <div class="btn btn-download"><img class="btn-icon" src="./assets/icon/btn-download_icon.svg"></div>
             </div>
         </div>
-        <ul class="songs">
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-            <li class="songs__item">
-                <img class="songs__item-thumb">
-                <div class="songs__item-detail">
-                    <h3 class="songs__item-detail-name">Bài này không để đi diễn</h3>
-                    <h4 class="songs__item-detail-artist">Anh Tú Atus</h4>
-                </div>
-            </li>
-
-        </ul>
+        <div class="songs">
+            <div class="songs__search">
+                <img class="songs__search-icon" src="./assets/icon/btn-search_icon.svg">
+                <input class="songs__searchbar" type="text" placeholder="Search songs, artists ...">
+            </div>
+            <ul class="songs__list">
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+                <li class="songs__list-item">
+                    <img class="songs__list-item-thumb">
+                    <div class="songs__list-item-detail">
+                        <h3 class="songs__list-item-detail-name">Bài này không để đi diễn</h3>
+                        <h4 class="songs__list-item-detail-artist">Anh Tú Atus</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="./assets/js/main.js"></script>
 </body>
