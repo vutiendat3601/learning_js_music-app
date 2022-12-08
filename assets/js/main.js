@@ -8,6 +8,7 @@ const audio = $("#audio");
 const cdThumb = $(".header__cd-thumb");
 const headingSong = $(".header__heading-song");
 const headingSinger = $(".header__heading-singer");
+const btnPlay = $(".btn-play");
 
 // Database
 let audiosDb = [];
@@ -37,6 +38,7 @@ const app = {
         this.loadSongs(audiosDb);
         this.initSettings(settingsDb);
         this.initRender();
+        this.initHandler();
     },
     loadSongs: function (audiosDb) {
         this.songs = audiosDb.map(a => {
@@ -75,11 +77,28 @@ const app = {
         audio.src = this.currentSong.path;
     },
     initHandler: function () {
-
+        let _this = this;
+        btnPlay.onclick = () => {
+            if (_this.settings.isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+        }
+        let songItems = $$(".songs__list-item");
+        songItems.forEach(songItem => {
+            songItem.onclick = () => {
+                let oldIndex = _this.currentIndex;
+                _this.currenPlaylistIndex = Number.parseInt(songItem.getAttribute("song-id"));
+                _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
+                _this.loadCurrentSong();
+                _this.renderCurrentSong();
+                audio.play();
+            }
+        });
     },
     start: function () {
         this.init();
-
     }
 }
 
