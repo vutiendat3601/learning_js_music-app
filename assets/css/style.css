@@ -66,11 +66,11 @@
     border: none;
     width: 56px;
     height: 56px;
-    background: url("/assets/icon/btn-play_icon.svg") no-repeat;
+    background: url("assets/icon/btn-play_icon.svg") no-repeat;
 }
 
 .btn-play.playing .btn-icon {
-    background: url("/assets/icon/btn-pause_icon.svg") no-repeat;
+    background: url("assets/icon/btn-pause_icon.svg") no-repeat;
     filter: brightness(0) invert(1);
 }
 
