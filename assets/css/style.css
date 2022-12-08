@@ -111,7 +111,7 @@
     border-radius: 8px;
     margin-right: 4px;
     background-size: cover;
-    background-image: url("/assets/img/thumb/bai-nay-khong-de-di-dien_thumb.jpg");
+    background-image: url("../img/thumb/bai-nay-khong-de-di-dien_thumb.jpg");
 }
 
 .songs__item-detail {
