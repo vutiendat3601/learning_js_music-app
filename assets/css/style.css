@@ -1,0 +1,128 @@
+.app {
+    background-image: linear-gradient(to right, #2b5876, #4e4376);
+    max-width: 480px;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 20px 20px 10px 20px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header__cd {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.header__cd img {
+    width: 100%;
+    height: 100%;
+}
+
+.header__heading {
+    text-align: center;
+}
+
+.header__heading-song,
+.header__heading-artist {
+    margin: 12px auto;
+    color: var(--white-color);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.player {
+    padding: 10px;
+}
+
+.player__pane,
+.player__util {
+    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* align-content: center; */
+}
+
+.btn .btn-icon {
+    width: 56px;
+    height: 32px;
+    line-height: 60px;
+    text-align: center;
+    filter: brightness(0) invert(1);
+    stroke-width: 1px;
+}
+
+.btn-play .btn-icon {
+    border-radius: 50%;
+    border: none;
+    width: 56px;
+    height: 56px;
+    background: url("/assets/icon/btn-play_icon.svg") no-repeat;
+}
+
+.btn-play.playing .btn-icon {
+    background: url("/assets/icon/btn-pause_icon.svg") no-repeat;
+    filter: brightness(0) invert(1);
+}
+
+
+
+.btn i {
+    color: var(--white-color);
+    font-size: 34px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    line-height: inherit;
+}
+
+.songs {
+    padding: 10px 20px;
+    list-style: none;
+    /* height: 100%; */
+    overflow-y: scroll;
+    max-height: 360px;
+}
+
+.songs__item {
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.songs__item:hover {
+    background-image: linear-gradient(to right, #e52e2e, #dd1f1f);
+    cursor: pointer;
+}
+
+.songs__item-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    margin-right: 4px;
+    background-size: cover;
+    background-image: url("/assets/img/thumb/bai-nay-khong-de-di-dien_thumb.jpg");
+}
+
+.songs__item-detail {
+    margin-left: 4px;
+}
+
+.songs__item-detail-name {
+    font-size: 16px;
+    color: var(--white-color);
+}
+.songs__item-detail-artist {
+    font-size: 14px;
+    color: #cccccc;
+}
