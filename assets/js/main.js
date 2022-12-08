@@ -13,6 +13,7 @@ const headingSinger = $(".header__heading-singer");
 const btnPlay = $(".btn-play");
 const audioProgress = $(".player__progress-seek");
 const btnYoutube = $(".btn-youtube");
+const btnDownload = $(".btn-download");
 
 // Database
 let audiosDb = [];
@@ -93,6 +94,24 @@ const app = {
             }
         }
 
+        // Download button event
+        btnDownload.onclick = () => {
+            fetch(_this.currentSong.path)
+                .then(resp => resp.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    // the filename you want
+                    a.download = `${_this.currentSong.name} - ${_this.currentSong.singer}`;
+                    // document.body.appendChild(a);
+                    a.click();
+                    // window.URL.revokeObjectURL(url);
+                })
+                .catch(() => alert('oh no!'));
+        }
+
         // Song items event
         let songItems = $$(".songs__list-item");
         songItems.forEach(songItem => {
@@ -112,6 +131,14 @@ const app = {
         }
 
         // Audio event
+        audio.onplay = () => {
+            _this.settings.isPlaying = true;
+            btnPlay.classList.add("playing");
+        }
+        audio.onpause = () => {
+            _this.settings.isPlaying = false;
+            btnPlay.classList.remove("playing");
+        }
         audio.ontimeupdate = () => {
             audioProgress.value = audio.currentTime / audio.duration * 1000;
         }
