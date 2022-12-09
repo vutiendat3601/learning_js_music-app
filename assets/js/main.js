@@ -19,6 +19,7 @@ const inpSearch = $(".songs__searchbar");
 const timerCurrent = $(".player__progress-time-curent");
 const timerEnd = $(".player__progress-time-end");
 const songs = $(".songs");
+const btnShowCd = $(".header__cd-show");
 
 // Database
 let audiosDb = [];
@@ -136,9 +137,12 @@ const app = {
         // const cdThumbAnimation = cdThumb.animate([{ transform: "" }],
         //     { duration: 16000, iterations: Infinity });
         // inpSearch
-        $(".header__cd-show").onclick = (e) => {
-            cd.style.display = "block";
-            $(".header__cd-show").style.display = "none";
+        btnShowCd.onclick = (e) => {
+            cd.style.height = "160px";
+            cd.style.width = "160px";
+            btnShowCd.style.width = "0";
+            btnShowCd.style.height = "0";
+            btnShowCd.style.fontSize = "0";
         }
 
         inpSearch.onfocus = () => {
@@ -152,10 +156,11 @@ const app = {
             },
             { width: "0px", height: "0px", opacity: "0" }],
                 { duration: 500 });
-            setTimeout(() => {
-                cd.style.display = "none";
-                $(".header__cd-show").style.display = "block";
-            }, 500);
+            cd.style.height = "0";
+            cd.style.width = "0";
+            btnShowCd.style.height = "16px";
+            btnShowCd.style.width = "100px";
+            btnShowCd.style.fontSize = "16px";
         }
 
         inpSearch.oninput = (e) => {
