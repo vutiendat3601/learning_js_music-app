@@ -173,14 +173,6 @@ const app = {
         inpSearch.onfocus = () => {
             let height = songsList.offsetHeight;
             songsList.style.height = `${height + cd.offsetHeight}px`;
-
-            cd.animate([{
-                width: `${cd.offsetWidth}px`
-                , height: `${cd.offsetHeight}px`
-                , opacity: "1"
-            },
-            { width: "0px", height: "0px", opacity: "0" }],
-                { duration: 500 });
             cd.style.height = "0";
             cd.style.width = "0";
             btnShowCd.style.height = "16px";
