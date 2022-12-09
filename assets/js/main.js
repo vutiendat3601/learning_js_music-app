@@ -7,6 +7,7 @@ const contextPath = originLocation.includes("github.io") ?
 
 const songsList = $(".songs__list");
 const audio = $("#audio");
+const cd = $(".header__cd");
 const cdThumb = $(".header__cd-thumb");
 const headingSong = $(".header__heading-song");
 const headingSinger = $(".header__heading-singer");
@@ -15,6 +16,9 @@ const audioProgress = $(".player__progress-seek");
 const btnYoutube = $(".btn-youtube");
 const btnDownload = $(".btn-download");
 const inpSearch = $(".songs__searchbar");
+const timerCurrent = $(".player__progress-time-curent");
+const timerEnd = $(".player__progress-time-end");
+const songs = $(".songs");
 
 // Database
 let audiosDb = [];
@@ -84,6 +88,8 @@ const app = {
         btnYoutube.href = this.currentSong.youtube;
         $(`.songs__list-item.active`)?.classList.remove("active");
         $(`.songs__list-item[song-id='${this.currenPlaylistIndex}']`)?.classList.add("active");
+        timerCurrent.textContent = secondsToMinutesAndSeconds(0);
+        timerEnd.textContent = secondsToMinutesAndSeconds(audio.duration);
     },
     initHandler: function () {
         let _this = this;
@@ -127,6 +133,30 @@ const app = {
                 audio.play();
             }
         });
+        // const cdThumbAnimation = cdThumb.animate([{ transform: "" }],
+        //     { duration: 16000, iterations: Infinity });
+        // inpSearch
+        $(".header__cd-show").onclick = (e) => {
+            cd.style.display = "block";
+            $(".header__cd-show").style.display = "none";
+        }
+
+        inpSearch.onfocus = () => {
+            let height = songsList.offsetHeight;
+            songsList.style.height = `${height + cd.offsetHeight}px`;
+
+            cd.animate([{
+                width: `${cd.offsetWidth}px`
+                , height: `${cd.offsetHeight}px`
+                , opacity: "1"
+            },
+            { width: "0px", height: "0px", opacity: "0" }],
+                { duration: 500 });
+            setTimeout(() => {
+                cd.style.display = "none";
+                $(".header__cd-show").style.display = "block";
+            }, 500);
+        }
 
         inpSearch.oninput = (e) => {
             let keyword = e.target.value;
@@ -141,15 +171,18 @@ const app = {
                     item.style.display = "flex";
                 }
             });
-            console.log(result);
         }
 
         // Audio progress event
         audioProgress.onchange = (e) => {
             audio.currentTime = e.target.value / 1000 * audio.duration;
+            timerCurrent.textContent = secondsToMinutesAndSeconds(audio.currentTime);
         }
 
         // Audio event
+        audio.onloadedmetadata = () => {
+            timerEnd.textContent = secondsToMinutesAndSeconds(audio.duration);
+        }
         audio.onplay = () => {
             _this.settings.isPlaying = true;
             btnPlay.classList.add("playing");
@@ -169,4 +202,13 @@ const app = {
 
 function start() {
     app.start();
+}
+
+function secondsToMinutesAndSeconds(seconds) {
+    seconds = !seconds ? 0 : seconds;
+    let minutes = Number.parseInt(seconds / 60);
+    seconds = Number.parseInt(seconds % 60);
+    seconds = seconds >= 10 ? `${seconds}` : `0${seconds}`;
+    minutes = minutes >= 10 ? `${minutes}` : `0${minutes}`;
+    return `${minutes}:${seconds}`
 }
