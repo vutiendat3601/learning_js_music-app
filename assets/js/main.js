@@ -16,6 +16,7 @@ const audioProgress = $(".player__progress-seek");
 const btnYoutube = $(".btn-youtube");
 const btnDownload = $(".btn-download");
 const inpSearch = $(".songs__searchbar");
+let timer = {};
 const timerCurrent = $(".player__progress-time-curent");
 const timerEnd = $(".player__progress-time-end");
 const songs = $(".songs");
@@ -134,8 +135,9 @@ const app = {
                 audio.play();
             }
         });
-        // const cdThumbAnimation = cdThumb.animate([{ transform: "" }],
-        //     { duration: 16000, iterations: Infinity });
+        const cdThumbAnimation = cdThumb.animate([{ transform: "rotate(360deg)" }],
+            { duration: 16000, iterations: Infinity });
+        cdThumbAnimation.pause();
         // inpSearch
         btnShowCd.onclick = (e) => {
             cd.style.height = "160px";
@@ -191,13 +193,22 @@ const app = {
         audio.onplay = () => {
             _this.settings.isPlaying = true;
             btnPlay.classList.add("playing");
+            cdThumbAnimation.play();
+            timer = setInterval(() => {
+                timerCurrent.textContent = secondsToMinutesAndSeconds(audio.currentTime)
+            }, 1000);
         }
         audio.onpause = () => {
             _this.settings.isPlaying = false;
             btnPlay.classList.remove("playing");
+            cdThumbAnimation.pause();
+            if (timer) {
+                clearInterval(timer);
+            }
         }
         audio.ontimeupdate = () => {
             audioProgress.value = audio.currentTime / audio.duration * 1000;
+
         }
     },
     start: function () {
