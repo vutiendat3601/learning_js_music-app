@@ -172,8 +172,9 @@
 .songs__list {
     list-style: none;
     overflow-y: scroll;
+    max-height: 600px;
     padding: 10px 8px;
-    height: 60vh;
+    height: 48vh;
 }
 
 .songs__list-item {

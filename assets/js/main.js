@@ -224,6 +224,9 @@ const app = {
         audio.ontimeupdate = () => {
             audioProgress.value = audio.currentTime / audio.duration * 1000;
         }
+        audio.onended = () => {
+            btnNext.click();
+        }
     },
     start: function () {
         this.init();
