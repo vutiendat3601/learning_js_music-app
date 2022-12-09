@@ -12,6 +12,8 @@ const cdThumb = $(".header__cd-thumb");
 const headingSong = $(".header__heading-song");
 const headingSinger = $(".header__heading-singer");
 const btnPlay = $(".btn-play");
+const btnNext = $(".btn-next");
+const btnPrevious = $(".btn-previous");
 const audioProgress = $(".player__progress-seek");
 const btnYoutube = $(".btn-youtube");
 const btnDownload = $(".btn-download");
@@ -104,6 +106,28 @@ const app = {
                 audio.play();
             }
         }
+        btnPrevious.onclick = () => {
+            if (audio.currentTime > 3) {
+                audio.currentTime = 0;
+            } else {
+                _this.currenPlaylistIndex--;
+                _this.currenPlaylistIndex = _this.currenPlaylistIndex > -1 ?
+                    _this.currenPlaylistIndex : 0;
+                _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
+                _this.loadCurrentSong();
+                _this.renderCurrentSong();
+            }
+            audio.play();
+        }
+        btnNext.onclick = () => {
+            _this.currenPlaylistIndex++;
+            _this.currenPlaylistIndex = _this.currenPlaylistIndex < this.songs.length ?
+                _this.currenPlaylistIndex : 0;
+            _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
+            _this.loadCurrentSong();
+            _this.renderCurrentSong();
+            audio.play();
+        }
 
         // Download button event
         btnDownload.onclick = () => {
@@ -127,7 +151,6 @@ const app = {
         let songItems = $$(".songs__list-item");
         songItems.forEach(songItem => {
             songItem.onclick = () => {
-                let oldIndex = _this.currentIndex;
                 _this.currenPlaylistIndex = songItem.getAttribute("song-id");
                 _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
                 _this.loadCurrentSong();
@@ -208,7 +231,6 @@ const app = {
         }
         audio.ontimeupdate = () => {
             audioProgress.value = audio.currentTime / audio.duration * 1000;
-
         }
     },
     start: function () {
