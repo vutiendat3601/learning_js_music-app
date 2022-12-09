@@ -183,7 +183,8 @@ const app = {
         inpSearch.oninput = (e) => {
             let keyword = e.target.value;
             keyword = keyword.toLowerCase();
-            let result = this.songs.filter(song => toNonAccentVietnamese(song.name.concat(song.singer).toLowerCase()).includes(keyword.trim()));
+            let result = this.songs.filter(song => toNonAccentVietnamese(song.name.concat(song.singer).toLowerCase())
+                .includes(toNonAccentVietnamese(keyword.trim())));
             this.songs.forEach((s, i) => {
                 let item = $(`.songs__list-item[song-id='${i}']`);
                 if (!result.includes(s)) {
