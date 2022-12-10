@@ -352,7 +352,7 @@ const github = {
     },
     prepareHeader: function (url) {
         let requestHeaders = new Headers();
-        requestHeaders.append("Authorization", "Bearer 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");
+        requestHeaders.append("Authorization", "Bearer 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");
         requestHeaders.append("Content-Type", "application/json");
         return requestHeaders;
     },
