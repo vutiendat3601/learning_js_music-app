@@ -11,8 +11,8 @@
     <link href="./assets/font/fontawesome-free-6.2.1/css/solid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="alternate icon" class="js-site-favicon" type="image/png"
-        href="https://github.githubassets.com/favicons/favicon-dark.png">
+    <link rel="icon" sizes="32x32" type="image/png"
+        href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png">
 </head>
 
 <body>
@@ -65,8 +65,42 @@
                 </li>
             </ul>
         </div>
+        <audio id="audio"></audio>
     </div>
-    <audio id="audio"></audio>
+
+    <div id="upload" class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="modal__inner">
+                <form class="upload-form">
+                    <div class="upload-form__mp3">
+                        <input class="upload-form__mp3-path" type="text" value="&lt;empty&gt;" readonly>
+                        <button class="btn-file btn-mp3-chooser">Chọn file mp3</button>
+                        <input id="inp-mp3" type="file" style="display: none;" accept=".mp3" required>
+                    </div>
+                    <div class="upload-form__thumb">
+                        <input class="upload-form__thumb-path" type="text" value="&lt;empty&gt;" readonly>
+                        <button class="btn-file btn-thumb-chooser">Chọn file thumbnail</button>
+                        <input id="inp-thumb" type="file" style="display: none;" accept="image/*">
+                    </div>
+                    <div class="upload-form__input">
+                        <label for="upload-form__name" style="font-size: 12px; display: block;">Tên bài hát</label>
+                        <input id="upload-form__name" type="text" required>
+                    </div>
+                    <div class="upload-form__input">
+                        <label for="upload-form__singer" style="font-size: 12px; display: block;">Ca sĩ</label>
+                        <input id="upload-form__singer" type="text" required>
+                    </div>
+                    <div class="upload-form__input">
+                        <label for="upload-form__youtbe" style="font-size: 12px; display: block;">Link Youtube (nếu
+                            có)</label>
+                        <input id="upload-form__youtube" type="url">
+                    </div>
+                    <input class="btn-upload-confirm" type="submit" value="Upload">
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="./assets/js/main.js"></script>
 </body>
 

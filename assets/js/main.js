@@ -16,6 +16,7 @@ const btnNext = $(".btn-next");
 const btnPrevious = $(".btn-previous");
 const audioProgress = $(".player__progress-seek");
 const btnYoutube = $(".btn-youtube");
+const btnUpload = $(".btn-upload");
 const btnDownload = $(".btn-download");
 const inpSearch = $(".songs__searchbar");
 let timer = {};
@@ -23,10 +24,22 @@ const timerCurrent = $(".player__progress-time-curent");
 const timerEnd = $(".player__progress-time-end");
 const songs = $(".songs");
 const btnShowCd = $(".header__cd-show");
-
+const uploadForm = $("#upload");
+const inpMp3 = $("#inp-mp3");
+const btnMp3Chooser = $(".btn-mp3-chooser");
+const btnThumbChooser = $(".btn-thumb-chooser");
+const uploadMp3Path = $(".upload-form__mp3-path");
+const uploadThumbPath = $(".upload-form__thumb-path");
+const modalOverlay = $(".modal__overlay");
+const inpThumb = $("#inp-thumb");
+const inpSongName = $("#upload-form__name");
+const inpSinger = $("#upload-form__singer");
+const inpYoutube = $("#upload-form__youtube");
 // Database
 let audiosDb = [];
 let settingsDb = {};
+let settingsURL = "https://api.github.com/repos/vutiendat3601/music-app/contents/db/settings.json";
+let f = {};
 
 (async (callback) => {
     await fetch(`${contextPath}db/audios.json`)
@@ -95,6 +108,26 @@ const app = {
         timerCurrent.textContent = secondsToMinutesAndSeconds(0);
         timerEnd.textContent = secondsToMinutesAndSeconds(audio.duration);
     },
+    uploadSong: async function (mp3File) {
+        let buffer = {};
+        await mp3File.arrayBuffer().then((data) => buffer = data);
+        const content = bufferToBase64(buffer);
+        let url = `https://api.github.com/repos/vutiendat3601/music-app/contents/assets/audio/${mp3File.name}`;
+        github.update(url, { content: content, message: `add ${mp3File.name}` });
+    },
+    updateSettings: function () {
+        console.log(this.settings);
+        let content = bufferToBase64(this.settings);
+        // console.log(content);
+        github.update(settingsURL, {
+            message: "update settings",
+            content: content,
+            sha: this.settings.sha
+        });
+    },
+    updateSongs: function () {
+
+    },
     initHandler: function () {
         let _this = this;
 
@@ -129,6 +162,11 @@ const app = {
             audio.play();
         }
 
+        // Upload button event
+        btnUpload.onclick = () => {
+            uploadForm.style.display = "flex";
+        }
+
         // Download button event
         btnDownload.onclick = () => {
             fetch(_this.currentSong.path)
@@ -155,6 +193,7 @@ const app = {
                 _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
                 _this.loadCurrentSong();
                 _this.renderCurrentSong();
+                audioProgress.value = 0;
                 audio.play();
             }
         });
@@ -227,6 +266,45 @@ const app = {
         audio.onended = () => {
             btnNext.click();
         }
+        inpMp3.onchange = () => {
+            uploadMp3Path.value = inpMp3.files[0].name;
+        }
+        inpThumb.onchange = () => {
+            uploadThumbPath.value = inpThumb.files[0].name;
+        }
+        btnMp3Chooser.onclick = () => {
+            inpMp3.click();
+        }
+        btnThumbChooser.onclick = () => {
+            inpThumb.click();
+        }
+        // event
+        uploadForm.onsubmit = async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let mp3File = inpMp3.files[0];
+            this.uploadSong(mp3File);
+
+            this.settings.numOfSong++;
+            const newSong = {
+                id: this.settings.numOfSong,
+                name: inpSongName.value,
+                singer: inpSinger.value,
+                youtube: inpYoutube.value,
+                thumb: "",
+                path: "hai-muoi-hai_amee.mp3"
+            }
+            this.songs.push(newSong);
+            this.updateSettings();
+            // this.updateSongs();
+            this.settings
+
+            modalOverlay.click();
+        }
+        modalOverlay.onclick = () => {
+            uploadForm.style.display = "none";
+        }
     },
     start: function () {
         this.init();
@@ -265,4 +343,54 @@ function toNonAccentVietnamese(str) {
     str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // Huyền sắc hỏi ngã nặng 
     str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
     return str;
+}
+
+const github = {
+    committer: {
+        name: "vutiendat3601",
+        email: "vutien.dat.3601@gmail.com"
+    },
+    prepareHeader: function (url) {
+        let requestHeaders = new Headers();
+        requestHeaders.append("Authorization", "Bearer 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");
+        requestHeaders.append("Content-Type", "application/json");
+        return requestHeaders;
+    },
+    fetch: async function (url) {
+        let requestHeaders = this.prepareHeader();
+        requestOptions = {
+            method: 'GET',
+            headers: requestHeaders,
+            redirect: 'follow'
+        };
+        const result = await fetch(url, requestOptions).then((data) => data.json());
+        return result.json();
+    },
+    update: function (url, json) {
+        let requestHeaders = this.prepareHeader();
+        raw = {
+            ...this.committer,
+            ...json,
+        }
+        let body = JSON.stringify(raw);
+        let requestOptions = {
+            method: 'put',
+            headers: requestHeaders,
+            body: body,
+            redirect: 'follow'
+        };
+        console.log(requestOptions);
+        fetch(url, requestOptions).then((data) => data.text()).then((text) => console.log(text))
+            .catch((error) => console.log("error: ", error));
+    }
+}
+
+let bufferToBase64 = function (buffer) {
+    var bytes = new Uint8Array(buffer);
+    var len = buffer.byteLength;
+    var binary = "";
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
 }

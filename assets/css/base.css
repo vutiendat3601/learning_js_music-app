@@ -1,6 +1,7 @@
 :root {
     --white-color: #ffffff;
     --black-color: #303030;
+    --primary-color: linear-gradient(to right, #2b5876, #4e4376);
 }
 
 * {
@@ -26,4 +27,61 @@ html {
 
 .btn:hover {
     opacity: 0.8;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.36);
+}
+
+.modal__body {
+    background-image: var(--primary-color);
+    margin: auto;
+    z-index: 1;
+    color: var(--white-color);
+    border-radius: 4px;
+    overflow: hidden;
+    animation: growth ease-in-out 0.4s;
+}
+
+.modal__inner {
+    padding: 16px;
+    flex-direction: column;
+}
+
+.btn-file {
+    margin-left: 2px;
+    height: 28px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #004c7e;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: var(--white-color);
+    opacity: 0.8;
+}
+
+.btn-file:hover {
+    opacity: 0.6;
+}
+
+@keyframes growth {
+    from {
+        scale: 0;
+    }to {
+        scale: 1;
+    }
 }

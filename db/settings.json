@@ -2,5 +2,7 @@
     "repeatMode": 0,
     "isShuffle": false,
     "currentSongId": 1,
-    "isPlaying": false
+    "isPlaying": false,
+    "numOfSong": 11,
+    "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
 }
