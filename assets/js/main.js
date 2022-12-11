@@ -41,20 +41,20 @@ let settingsDb = {};
 let settingsURL = "https://api.github.com/repos/vutiendat3601/music-app/contents/db/settings.json";
 let f = {};
 
-(async (callback) => {
-    await fetch(`${contextPath}db/audios.json`)
-        .then((resp) => resp.json()).then((json) => {
-            audiosDb = json;
-            return;
-        });
-    await fetch(`${contextPath}db/settings.json`)
-        .then((resp) => resp.json())
-        .then((json) => {
-            settingsDb = json;
-            return;
-        });
-    callback();
-})(start);
+
+
+
+fetch(`${contextPath}db/audios.json`)
+    .then((resp) => resp.json())
+    .then((json) => {
+        audiosDb = json;
+        return fetch(`${contextPath}db/settings.json`)
+    }).then((resp) => resp.json())
+    .then((json) => { settingsDb = json; main(); });
+
+function main() {
+    app.start();
+}
 
 const app = {
     songs: [],
@@ -276,9 +276,6 @@ const app = {
     }
 }
 
-function start() {
-    app.start();
-}
 
 function secondsToMinutesAndSeconds(seconds) {
     seconds = !seconds ? 0 : seconds;
