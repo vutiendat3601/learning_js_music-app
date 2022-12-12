@@ -102,8 +102,6 @@
 }
 
 
-
-
 .player__pane {
     padding: 8px 16px 4px 16px;
 }
@@ -118,8 +116,12 @@
     justify-content: space-between;
     align-items: center;
 }
-
-
+.btn-shuffle .btn-icon {
+    filter: brightness(0) invert(0.6);
+}
+.btn-shuffle .btn-icon.active {
+    filter: brightness(0) invert(1);
+}
 
 .btn-play .btn-icon {
     border-radius: 50%;
@@ -165,10 +167,26 @@
     line-height: 16px;
 }
 
-
-
 .btn-search:hover {
     opacity: 0.8;
+}
+
+.songs__heading {
+    font-size: 16px;
+    padding: 8px 18px 0 18px;
+    color: var(--white-color);
+    display: inline-block;
+}
+
+.btn-playlist-add {
+    display: inline-block;
+}
+
+.btn-playlist-add .btn-icon {
+    border-radius: 50%;
+    border: none;
+    width: 14px;
+    height: 14px;
 }
 
 .songs__list {

@@ -11,6 +11,9 @@ const cd = $(".header__cd");
 const cdThumb = $(".header__cd-thumb");
 const headingSong = $(".header__heading-song");
 const headingSinger = $(".header__heading-singer");
+
+const btnShuffle = $(".btn-shuffle");
+const btnRepeat = $(".btn-repeat");
 const btnPlay = $(".btn-play");
 const btnNext = $(".btn-next");
 const btnPrevious = $(".btn-previous");
@@ -39,7 +42,6 @@ const inpYoutube = $("#upload-form__youtube");
 let audiosDb = [];
 let settingsDb = {};
 let settingsURL = "https://api.github.com/repos/vutiendat3601/music-app/contents/db/settings.json";
-let f = {};
 
 
 
@@ -50,17 +52,16 @@ fetch(`${contextPath}db/audios.json`)
         audiosDb = json;
         return fetch(`${contextPath}db/settings.json`)
     }).then((resp) => resp.json())
-    .then((json) => { settingsDb = json; main(); });
-
-function main() {
-    app.start();
-}
+    .then((json) => { settingsDb = json; app.start(); });
 
 const app = {
     songs: [],
+    currentPlaylist: [],
     settings: {},
     currenPlaylistIndex: 0,
     currentSong: {},
+    isShuffle: false,
+    playedSongs: new Set(),
     init: function () {
         this.loadSongs(audiosDb);
         this.initSettings(settingsDb);
@@ -73,12 +74,13 @@ const app = {
             a.thumb = `${contextPath}${a.thumb}`;
             return a;
         });
+        this.currentPlaylist = [...this.songs];
     }, initSettings(settingsDb) {
         this.settings = settingsDb;
         this.loadCurrentSong();
     },
     loadCurrentSong: function () {
-        this.currentSong = this.songs.find(song => song.id === this.settings.currentSongId);
+        this.currentSong = this.currentPlaylist.find(song => song.id === this.settings.currentSongId);
     },
     initRender: function () {
         this.renderSongs();
@@ -86,7 +88,7 @@ const app = {
     },
     renderSongs: function () {
         let i = 0;
-        const htmls = this.songs.map(song =>
+        const htmls = this.currentPlaylist.map(song =>
             `<li class="songs__list-item" song-id="${i++}">
                 <img class="songs__list-item-thumb" 
                 style="background-image: url('${song.thumb}');">
@@ -126,7 +128,7 @@ const app = {
                 _this.currenPlaylistIndex--;
                 _this.currenPlaylistIndex = _this.currenPlaylistIndex > -1 ?
                     _this.currenPlaylistIndex : 0;
-                _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
+                _this.settings.currentSongId = _this.currentPlaylist[_this.currenPlaylistIndex].id;
                 _this.loadCurrentSong();
                 _this.renderCurrentSong();
             }
@@ -134,12 +136,20 @@ const app = {
         }
         btnNext.onclick = () => {
             _this.currenPlaylistIndex++;
-            _this.currenPlaylistIndex = _this.currenPlaylistIndex < this.songs.length ?
+            _this.currenPlaylistIndex = _this.currenPlaylistIndex < this.currentPlaylist.length ?
                 _this.currenPlaylistIndex : 0;
-            _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
+            _this.settings.currentSongId = _this.currentPlaylist[_this.currenPlaylistIndex].id;
             _this.loadCurrentSong();
             _this.renderCurrentSong();
             audio.play();
+        }
+
+        btnShuffle.onclick = () => {
+            if (_this.isShuffle) {
+                _this.playedSongs.clear();
+            }
+            $(".btn-shuffle .btn-icon").classList.toggle("active");
+            _this.isShuffle = !_this.isShuffle;
         }
 
         // Upload button event
@@ -170,7 +180,7 @@ const app = {
         songItems.forEach(songItem => {
             songItem.onclick = () => {
                 _this.currenPlaylistIndex = songItem.getAttribute("song-id");
-                _this.settings.currentSongId = _this.songs[_this.currenPlaylistIndex].id;
+                _this.settings.currentSongId = _this.currentPlaylist[_this.currenPlaylistIndex].id;
                 _this.loadCurrentSong();
                 _this.renderCurrentSong();
                 audioProgress.value = 0;
@@ -202,9 +212,9 @@ const app = {
         inpSearch.oninput = (e) => {
             let keyword = e.target.value;
             keyword = keyword.toLowerCase();
-            let result = this.songs.filter(song => toNonAccentVietnamese(song.name.concat(song.singer).toLowerCase())
+            let result = this.currentPlaylist.filter(song => toNonAccentVietnamese(song.name.concat(song.singer).toLowerCase())
                 .includes(toNonAccentVietnamese(keyword.trim())));
-            this.songs.forEach((s, i) => {
+            this.currentPlaylist.forEach((s, i) => {
                 let item = $(`.songs__list-item[song-id='${i}']`);
                 if (!result.includes(s)) {
                     item.style.display = "none";
@@ -244,7 +254,21 @@ const app = {
             audioProgress.value = audio.currentTime / audio.duration * 1000;
         }
         audio.onended = () => {
-            btnNext.click();
+            if (_this.isShuffle) {
+                _this.playedSongs.add(_this.currentSong);
+                let r = 0;
+                if (_this.playedSongs.length != _this.currentPlaylist.length) {
+                    do {
+                        r = Math.floor(Math.random() * _this.currentPlaylist.length);
+                    } while (_this.playedSongs.has(_this.currentPlaylist[r]));
+                }
+                _this.settings.currentSongId = _this.currentSong.id;
+                _this.currentSong = _this.currentPlaylist[r];
+                _this.renderCurrentSong();
+                audio.play();
+            } else {
+                btnNext.click();
+            }
         }
         inpMp3.onchange = () => {
             uploadMp3Path.value = inpMp3.files[0].name;

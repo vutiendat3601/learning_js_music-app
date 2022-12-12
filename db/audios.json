@@ -5,7 +5,10 @@
         "singer": "LyLy",
         "path": "assets/audio/24h_lyly.mp3",
         "thumb": "assets/img/thumb/24h_thumb.jpg",
-        "youtube": "https://youtu.be/IpniN1Wq68Y"
+        "youtube": "https://youtu.be/IpniN1Wq68Y",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 2,
@@ -13,7 +16,10 @@
         "singer": "MIN",
         "path": "assets/audio/dung-yeu-nua-em-met-roi_min.mp3",
         "thumb": "assets/img/thumb/dung-yeu-nua-em-met-roi_thumb.jpg",
-        "youtube": "https://youtu.be/2sIC1sh-yc0"
+        "youtube": "https://youtu.be/2sIC1sh-yc0",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 3,
@@ -21,7 +27,10 @@
         "singer": "Doãn Hiếu",
         "path": "assets/audio/nu-cuoi-18-20_doan-hieu.mp3",
         "thumb": "assets/img/thumb/nu-cuoi-18-20_thumb.jpg",
-        "youtube": "https://youtu.be/9EwqXZtviTM"
+        "youtube": "https://youtu.be/9EwqXZtviTM",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 4,
@@ -29,7 +38,10 @@
         "singer": "Orange",
         "path": "assets/audio/tu-su_orange.mp3",
         "thumb": "assets/img/thumb/tu-su_thumb.jpg",
-        "youtube": "https://youtu.be/C4QhZvTqhnI"
+        "youtube": "https://youtu.be/C4QhZvTqhnI",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 5,
@@ -37,7 +49,10 @@
         "singer": "Vũ Duy Khánh",
         "path": "assets/audio/vo-tuyet-voi-nhat_vu-duy-khanh.mp3",
         "thumb": "assets/img/thumb/vo-tuyet-voi-nhat_thumb.jpg",
-        "youtube": "https://youtu.be/oM_JJIJygYw"
+        "youtube": "https://youtu.be/oM_JJIJygYw",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 6,
@@ -45,7 +60,10 @@
         "singer": "Anh Tú Atus",
         "path": "assets/audio/bai-nay-khong-de-di-dien_anh-tu-atus.mp3",
         "thumb": "assets/img/thumb/bai-nay-khong-de-di-dien_thumb.jpg",
-        "youtube": "https://youtu.be/i0yxWxk_e20"
+        "youtube": "https://youtu.be/i0yxWxk_e20",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 7,
@@ -53,7 +71,10 @@
         "singer": "Miu Lê",
         "path": "assets/audio/minh-yeu-tu-bao-gio_miu-le.mp3",
         "thumb": "assets/img/thumb/minh-yeu-tu-bao-gio_thumb.jpg",
-        "youtube": "https://youtu.be/qH-pG2wBdlA"
+        "youtube": "https://youtu.be/qH-pG2wBdlA",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 8,
@@ -61,7 +82,10 @@
         "singer": "VAnh",
         "path": "assets/audio/mat-moc_vanh.mp3",
         "thumb": "assets/img/thumb/mat-moc_thumb.jpg",
-        "youtube": "https://youtu.be/v1ADEPnPt54"
+        "youtube": "https://youtu.be/v1ADEPnPt54",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 9,
@@ -69,7 +93,10 @@
         "singer": "Sơn Tùng MTP",
         "path": "assets/audio/noi-nay-co-anh_son-tung-mtp.mp3",
         "thumb": "assets/img/thumb/noi-nay-co-anh_thumb.jpg",
-        "youtube": "https://youtu.be/FN7ALfpGxiI"
+        "youtube": "https://youtu.be/FN7ALfpGxiI",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 10,
@@ -77,7 +104,10 @@
         "singer": "Jong Kook",
         "path": "assets/audio/dreamers_jong-kook.mp3",
         "thumb": "assets/img/thumb/dreamers_thumb.jpg",
-        "youtube": "https://youtu.be/IwzkfMmNMpM"
+        "youtube": "https://youtu.be/IwzkfMmNMpM",
+        "genre": [
+            "vietnamese"
+        ]
     },
     {
         "id": 11,
@@ -85,6 +115,65 @@
         "singer": "Bùi Trường Linh",
         "path": "assets/audio/duong-toi-cho-em-ve_bui-truong-linh.mp3",
         "thumb": "assets/img/thumb/duong-toi-cho-em-ve_thumb.jpg",
-        "youtube": "https://youtu.be/OuNo8Tkb3lI"
+        "youtube": "https://youtu.be/OuNo8Tkb3lI",
+        "genre": [
+            "vietnamese"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "See You Again",
+        "singer": "Wiz Khalifa",
+        "path": "assets/audio/see-you-again_wiz-khalifa.mp3",
+        "thumb": "assets/img/thumb/see-you-again_thumb.jpg",
+        "youtube": "https://youtu.be/RgKAFK5djSk",
+        "genre": [
+            "english"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Memories",
+        "singer": "Maroon 5",
+        "path": "assets/audio/memories_maroon-5.mp3",
+        "thumb": "assets/img/thumb/memories_thumb.jpg",
+        "youtube": "https://youtu.be/OuNo8Tkb3lI",
+        "genre": [
+            "english"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Holo",
+        "singer": "Ampyx",
+        "path": "assets/audio/holo_ampyx.mp3",
+        "thumb": "assets/img/thumb/holo_thumb.jpg",
+        "youtube": "https://youtu.be/OuNo8Tkb3lI",
+        "genre": [
+            "english",
+            "edm"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "American Dream",
+        "singer": "Gabbie June",
+        "path": "assets/audio/american-dream_gabbie-june.mp3",
+        "thumb": "assets/img/thumb/american-dream_thumb.jpg",
+        "youtube": "https://youtu.be/OuNo8Tkb3lI",
+        "genre": [
+            "english"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Closer",
+        "singer": "The Chansmoker",
+        "path": "assets/audio/closer_the-chansmoker.mp3",
+        "thumb": "assets/img/thumb/closer_thumb.jpg",
+        "youtube": "https://youtu.be/OuNo8Tkb3lI",
+        "genre": [
+            "english"
+        ]
     }
 ]
